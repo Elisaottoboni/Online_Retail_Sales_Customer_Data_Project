@@ -20,6 +20,7 @@ def clean_dataset():
     df_sales["Day"] = df_sales["InvoiceDate"].dt.day
     df_sales["Month"] = df_sales["InvoiceDate"].dt.month
     df_sales["Year"] = df_sales["InvoiceDate"].dt.year
+    df_sales['Date'] = pd.to_datetime(df_sales[['Year', 'Month', 'Day']])
 
     df_sales['TotalSales'] = df_sales['Quantity'] * df_sales['UnitPrice']
 
